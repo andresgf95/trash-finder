@@ -1,16 +1,16 @@
 import { DataTypes } from "sequelize";
-import db from "./db.mjs";
+import db from "../db.mjs";
 
-const SaveList = db.define('SaveList', {
-    IDObject: {
-        type: DataTypes.INTEGER
-    },
+const UserProfile = db.define('UserProfile', {
     IDUser: {
         type: DataTypes.INTEGER
     },
-    IDDate: {
+    ProfileImg: {
+        type: DataTypes.INTEGER
+    },
+    Theme: {
         type: DataTypes.INTEGER
     }
 });
 
-export default SaveList
+export default UserProfile

@@ -1,5 +1,5 @@
 import { DataTypes } from "sequelize";
-import db from "./db.mjs";
+import db from "../db.mjs";
 
 const File = db.define('File', {
     Ref: {
