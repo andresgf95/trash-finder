@@ -1,7 +1,5 @@
 import { DataTypes } from "sequelize";
-import db from "../db.mjs";
-import Location from "./LocationTable.mjs";
-import File from "./FilesTable.mjs";
+import db from "../DefineDB.mjs";
 
 const Object = db.define('Object', {
     Title: {
@@ -20,11 +18,5 @@ const Object = db.define('Object', {
         type: DataTypes.DATE
     }
 });
-
-Object.hasMany(File)
-File.belongsTo(Object)
-
-Location.hasMany(Object)
-Object.belongsTo(Location)
 
 export default Object

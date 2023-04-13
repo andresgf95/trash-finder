@@ -1,6 +1,5 @@
 import { DataTypes } from "sequelize";
-import db from "../db.mjs";
-import Object from "./ObjectsTable.mjs";
+import db from "../DefineDB.mjs";
 
 const SaveList = db.define('SaveList', {
     IDObject: {
@@ -13,8 +12,5 @@ const SaveList = db.define('SaveList', {
         type: DataTypes.INTEGER
     }
 });
-
-SaveList.hasMany(Object)
-Object.belongsTo(SaveList)
 
 export default SaveList

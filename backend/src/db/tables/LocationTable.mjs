@@ -1,5 +1,5 @@
 import { DataTypes } from "sequelize";
-import db from "../db.mjs";
+import db from "../DefineDB.mjs";
 
 const Location = db.define('Location', {
     IDObject: {
