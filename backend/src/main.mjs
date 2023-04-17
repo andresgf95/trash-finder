@@ -11,23 +11,22 @@ app.use(express.json())
 
 app.get("/", (_, respuesta)=>{
     respuesta.status(200)
-    respuesta.send("¡¡¡Funciono!!!")
+    respuesta.send(`WARNING!!
+    Area 51 restricted`)
 })
 
-app.get("/users/")
-app.get("/objects/", GetObject)
-app.get("/UserProfile/")
-app.get("/location/")
-app.get("/SavedList/")
-app.get("/files/")
-app.get("/LogIn/")
+app.get("/api/v1.0/users/")
+app.get("/api/v1.0/objects/", GetObject)
+app.get("/api/v1.0/users/UserProfile/")
+app.get("/api/v1.0/objects/location/")
+app.get("/api/v1.0/objects/files/")
 
-app.post("/users/")
-app.post("/objects/", jsonMiddleware, CreateObjects)
-app.post("/location/")
-app.post("/SavedList/")
-app.post("/files/")
-app.post("/LogIn/")
+app.post("/api/v1.0/users/")
+app.post("/api/v1.0/objects/", jsonMiddleware, CreateObjects)
+app.post("/api/v1.0/objects/location/")
+app.post("/api/v1.0/users/SavedList/")
+app.post("/api/v1.0/objects/files/")
+app.post("/api/v1.0/LogIn/")
 
 app.put("/users/")
 app.put("/objects/")
@@ -42,5 +41,5 @@ app.delete("/SavedList/")
 app.delete("/files/")
 
 app.listen( 8000,()=>{
-    console.log("Express traballando...");
+    console.log("🐧🐧🐧👽👽👽");
 })
