@@ -5,7 +5,7 @@ const Object = db.define('Object', {
     Title: {
         type: DataTypes.STRING
     },
-    description: {
+    Description: {
         type: DataTypes.TEXT
     },
     IDUser: {

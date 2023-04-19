@@ -1,11 +1,11 @@
-import Proba from "./components/Proba.jsx"
+import Xeolocalizacion from "./components/Xeolocalizacion"
+
 
 function App() {
+
   return(
       <>
-      <Proba>
-        
-      </Proba>
+        <Xeolocalizacion></Xeolocalizacion>
       </>
   );
 }

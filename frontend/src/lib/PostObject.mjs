@@ -1,8 +1,7 @@
-
 async function CallbackPostObject(Object, HandlerObject=()=>{}) {
     try {
         const ObjectJSON = JSON.stringify(Object)
-        const res = await fetch("http://localhost:8000/objects/",
+        const res = await fetch("http://localhost:8000/api/v1.0/objects/",
         {
             method: "POST",
             headers: {

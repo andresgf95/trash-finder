@@ -12,9 +12,9 @@ const User = db.define('User', {
     Email: {
         type: DataTypes.STRING
     },
-    has: {
+    Has: {
         type: DataTypes.STRING
     }
-});
+}); 
 
 export default User
