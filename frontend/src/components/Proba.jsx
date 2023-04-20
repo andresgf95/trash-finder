@@ -1,21 +1,29 @@
+import { useRef } from "react";
+import CallbackPostObject from "../lib/PostObject.mjs";
 
+function Proba() {
+    
+    const form = useRef()
 
-function proba() {
-
-
+    function SendData(event) {
+        event.preventDefault()
+        const formData = new FormData(event.target)
+        const datosJSON = deFormDataAobjeto(formData)
+        enviarNovoAutor(datosJSON, manexadorResposta)
+    }
 
     return(
-        <body>
+        <form ref={form} onSubmit={}>
             <fieldset>
                 <legend>Engadir Novo Aviso</legend>
                 <label>título</label>
-                <input type="text" />
+                <input type="text" id="Title"/>
                 <label>Descripción</label>
-                <input type="text" />
-                <button type="submit">Publicar</button>
+                <input type="text" id="Description"/>
+                <button>Enviar</button>
             </fieldset>
-        </body>
+        </form>
     );
 }
 
-export default proba
+export default Proba

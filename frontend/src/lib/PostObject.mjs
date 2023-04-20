@@ -16,3 +16,5 @@ async function CallbackPostObject(Object, HandlerObject=()=>{}) {
         res.send("Ay Caramba!")
     }
 }
+
+export default CallbackPostObject
