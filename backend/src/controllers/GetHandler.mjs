@@ -12,7 +12,7 @@ async function GetObject (_, res) {
 async function GetUser (_, res) {
     try {
         const users = await User.findAll()
-        res.status(200).json( users )
+        res.status(200).json( users.params.id )
     } catch (err) {
         errorHandler(err, res)
     }

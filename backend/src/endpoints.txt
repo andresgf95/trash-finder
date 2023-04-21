@@ -1,0 +1,34 @@
+/api/v1.0/users/:ID
+    GET => pedir usuario
+    POST => Crear usuario
+    DELETE => Borrar usuario
+
+/api/v1.0/users/UserProfile/:ID
+    GET => Mostrar información d eperfil de usuario + Lista de gardados
+    PUT => Modificar: Lista de gardados, Imaxe de perfil e Tema (posibilidade de mais axustes)
+
+/api/v1.0/users/UserProfile/:ID/SavedList/:ID
+    POST => Crear elementos na lista de gardados
+    DELETE => Borrar elementos na lista de gardados
+
+/api/v1.0/users/Objects/
+    GET => Mostrar lista de avisos activos
+
+/api/v1.0/users/Objects/:ID
+    GET => Mostrar un aviso
+    POST => Crear un aviso
+    DELETE => Borrar un aviso
+
+/api/v1.0/users/:ID/Objects/:ID/files/:ID
+    POST => Publicar foto
+    DELETE => Borrar foto
+    PUT => Publicar foto a maiores no aviso de referencia
+
+/api/v1.0/users/:ID/Objects/:ID/location/:ID ----- NON ------ Facer esto sobre o endpoint da ruta API externa
+    GET => obter ubicación
+    POST => Crear Ubicación
+    PUT => Cambiar ubicación
+    DELETE => Borrar ubicación
+
+/api/v1.0/users/LogIn
+    POST => Iniciar sesión

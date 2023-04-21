@@ -16,7 +16,7 @@ app.get("/", (_, respuesta)=>{
     Area 51 restricted`)
 })
 
-app.get("/api/v1.0/users/", GetUser)
+app.get("/api/v1.0/users/:id?", GetUser)
 app.get("/api/v1.0/objects/", GetObject)
 
 app.post("/api/v1.0/users/", jsonMiddleware, CreateUser)
