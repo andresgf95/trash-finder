@@ -1,6 +1,6 @@
 import B from './B.png'
 
-function Carousel() {
+function SmallImage() {
 
 
     return (
@@ -10,4 +10,4 @@ function Carousel() {
     );
 }
 
-export default Carousel
+export default SmallImage

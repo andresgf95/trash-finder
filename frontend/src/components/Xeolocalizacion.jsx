@@ -1,6 +1,6 @@
 import { MapContainer, TileLayer, useMapEvents, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 function Map() {
 
@@ -18,9 +18,9 @@ function Map() {
   return (
     <MapContainer
       center={position}
-      zoom={13}
+      zoom={16}
       scrollWheelZoom={true}
-      style={{ height: "50vh", width: "50vh" }}>
+      style={{ height: "35vh", width: "35vh" }}>
         <TileLayer
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"/>
