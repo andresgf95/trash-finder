@@ -1,4 +1,4 @@
-import B from './B.png'
+import B from '../img/B.png'
 
 function SmallImage() {
 

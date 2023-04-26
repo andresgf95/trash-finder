@@ -5,12 +5,9 @@ function LogIn() {
 
     return(
         <div>
-            <fieldset>
             <label> Usuario
                 <input type="text"/>
             </label>
-            </fieldset>
-
             <label> Contrasinal
                 <input type="text"/>
             </label>

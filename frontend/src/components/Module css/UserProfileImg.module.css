@@ -1,0 +1,11 @@
+.boxImg {
+    width: 200px;
+    height: 200px;
+    text-align: center;
+    margin: 1rem;
+}
+
+.Img {
+    border-radius: 50%;
+    margin-bottom: 1rem;
+}
