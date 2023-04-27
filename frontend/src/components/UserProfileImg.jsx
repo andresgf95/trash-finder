@@ -1,4 +1,4 @@
-import styles from "./Module css/UserProfileImg.module.css"
+import styles from "./Module css Components/UserProfileImg.module.css"
 import Button from "../img/SettingsButton.svg"
 
 function ProfileImage() {

@@ -4,9 +4,7 @@ function SmallImage() {
 
 
     return (
-        <div>
         <img src={B} alt="Oscar" />
-        </div>
     );
 }
 

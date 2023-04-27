@@ -1,4 +1,4 @@
-import styles from "./Module css/Saved_AddedList.module.css"
+import styles from "./Module css Components/Saved_AddedList.module.css"
 
 function SavedList() {
 

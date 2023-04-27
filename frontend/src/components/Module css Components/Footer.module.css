@@ -1,0 +1,16 @@
+.Footer {
+    position: absolute;
+    bottom: auto;
+    left: 0;
+    right: 0;
+    background: #141414;
+    height: auto;
+    width: auto;
+    padding-top: 40px;
+    color: #fff;
+}
+
+.Logo {
+    width: 250px;
+    background-color: aliceblue;
+}
