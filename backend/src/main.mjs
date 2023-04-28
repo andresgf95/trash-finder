@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import "./db/RunDB.mjs";
-import jsonMiddleware from "./controllers/middlewares/JsonMiddleware.mjs";
+import jsonMiddleware from "./middlewares/JsonMiddleware.mjs";
 import { CreateObjects, CreateUser } from "./controllers/CreateHandler.mjs";
 import { GetObject, GetUser } from "./controllers/GetHandler.mjs";
 import { ChangeKarma, UpdateObject } from "./controllers/PutHandler.mjs";

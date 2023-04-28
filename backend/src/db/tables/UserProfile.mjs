@@ -7,9 +7,6 @@ const UserProfile = db.define('UserProfile', {
     },
     ProfileImg: {
         type: DataTypes.INTEGER
-    },
-    Theme: {
-        type: DataTypes.INTEGER
     }
 });
 
