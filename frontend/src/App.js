@@ -8,17 +8,15 @@ import NotificationList from "./views/NotificationList";
 import UserPanel from "./views/UserPanel";
 import Description from "./views/description";
 import "./App.css"
+import AddItemForm from "./components/AddItemForm";
+import Monigote from "./UserLogInCompose/div";
 
 
 function App() {
 
   return(
     <>
-      <Header/>
-      <div className="Content">
-        
-      </div>
-      <Footer/>
+    <Monigote/>
     </>
   );
 }

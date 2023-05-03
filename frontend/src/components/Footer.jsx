@@ -5,7 +5,7 @@ function Footer() {
     
     return(
         <footer className={styles.Footer}>
-            <img className={styles.Logo} src={Logo1} alt="Logo" />
+            <h1 className={styles.Logo}>VacalourApp</h1>
         </footer>
     )
 }

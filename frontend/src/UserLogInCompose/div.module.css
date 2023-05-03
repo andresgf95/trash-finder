@@ -1,0 +1,40 @@
+.background {
+    position: absolute;
+    left: 50px;
+    border-top-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    background-color: rgb(117, 184, 243);
+    width: 100px;
+    height: 100px;
+}
+
+.container {
+    position: relative;
+    left: 10px;
+    top: 10px;
+    border: 1px solid;
+    border-radius:15px;
+    width: 80px;
+    height: 80px;
+}
+
+.head {
+    position: relative;
+    border: 1px solid;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    left: 25px;
+    top: 5px;
+}
+
+.body {
+    position: relative;
+    border: 1px solid;
+    width: 50px;
+    height: 35px;
+    top: 34px;
+    right: 10px;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+}

@@ -1,7 +1,7 @@
 .Header {
     height: 85px;
-    width: auto;
-    position: sticky;
+    width: 100%;
+    position: fixed;
     top:0%;
     margin: 0%;
     background-color: rgb(123, 248, 196);
@@ -18,6 +18,6 @@
 }
 
 .LogIn {
-    width: 87px;
+    max-width: 100%;
     padding-right: 3rem;
 }
