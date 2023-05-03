@@ -1,6 +1,6 @@
 function errorHandler (err, res) {
+    res.sendStatus(500)
     console.error(err)
-    res.status(500).send()
 }
 
 export default errorHandler

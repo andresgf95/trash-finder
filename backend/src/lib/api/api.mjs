@@ -13,8 +13,8 @@ app.get(api.fixedPath+api.objectPath, GetObject)
 app.post(api.fixedPath+api.userPath, jsonMiddleware, CreateUser)
 app.post(api.fixedPath+api.objectPath, jsonMiddleware, CreateObjects)
 
-app.put(api.fixedPath, jsonMiddleware, ChangeKarma)
-app.put(api.fixedPath, jsonMiddleware, UpdateObject)
+app.put(api.fixedPath+api.userPath, jsonMiddleware, ChangeKarma)
+app.put(api.fixedPath+api.objectPath, jsonMiddleware, UpdateObject)
 
 
 app.listen( process.env.PORT,()=>{
