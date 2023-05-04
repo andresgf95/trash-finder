@@ -6,7 +6,6 @@ function Monigote(){
         <div className={styles.container}>
             <div className={styles.head}>
                 <div className={styles.body}>
-
                 </div>
             </div>
         </div>

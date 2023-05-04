@@ -6,18 +6,42 @@ import CreateAccount from "./views/CreateAccount";
 import LogIn from "./views/LogIn";
 import NotificationList from "./views/NotificationList";
 import UserPanel from "./views/UserPanel";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { AuthorizationProvider } from "./services/authorization"
 import Description from "./views/description";
 import "./App.css"
-import AddItemForm from "./components/AddItemForm";
-import Monigote from "./UserLogInCompose/div";
+
+
 
 
 function App() {
 
   return(
-    <>
-    <Monigote/>
-    </>
+/*    <>
+      <Header/>
+        <AuthorizationProvider>
+          <BrowserRouter>
+            <nav>
+              <ul>
+                <Link>
+                  <li>Páxina principal</li>
+                </Link>
+              </ul>
+            </nav>
+            <main>
+              <Routes>
+                <Route/>
+                <Route/>
+              </Routes>
+            </main>
+          </BrowserRouter>
+        </AuthorizationProvider>
+      <Footer/>
+    </>*/
+    <AuthorizationProvider>
+    <LogIn/>
+    </AuthorizationProvider>
+
   );
 }
 
