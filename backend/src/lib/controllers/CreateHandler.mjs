@@ -12,8 +12,8 @@ async function CreateObjects (req, res) {
 
 async function CreateUser(req, res) {
     try {
-        await User.create(req.body)
-        res.send("Usuario creado")
+        const newUser = await User.create(req.body)
+        res.json( newUser )
     } catch (err) {
     errorHandler(err, res)
     }

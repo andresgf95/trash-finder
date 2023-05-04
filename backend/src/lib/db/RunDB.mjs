@@ -24,6 +24,7 @@ UserProfile.belongsTo(User)
 User.hasMany(Object)
 Object.belongsTo(User)
 
-await db.sync({ alter: true })
+//await db.sync({ alter: true })
+await db.sync()
 
 export { File, Location, Object, SaveList, UserProfile, User }
