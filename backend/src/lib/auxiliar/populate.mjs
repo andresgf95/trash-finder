@@ -6,7 +6,7 @@ const users = [
         UserName: "Ramón",
         Karma: 0,
         Email: "ramon@ramonmail.gal",
-        Has: "po52h3u23ph42ou4"
+        Has: "4f2430a7ae267fd4f37ed3f20b8c677c59dee284d45d1b062751c421c9d5e41e3e666848d2781a594a38caa60ea6323dc9f723ed49906f8dc57ebe9c9d66339c"
     }, {
         id: 1,
         UserName: "Josefa",

@@ -15,6 +15,10 @@ const User = db.define('User', {
     Has: {
         type: DataTypes.STRING
     }
-}); 
+}, 
+    {
+        paranoid: true
+    }   
+); 
 
 export default User

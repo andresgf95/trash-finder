@@ -8,6 +8,9 @@ const Object = db.define('Object', {
     Description: {
         type: DataTypes.TEXT
     },
+    LocationDescription: {
+        type: DataTypes.TEXT
+    },
     IDUser: {
         type: DataTypes.INTEGER
     },
