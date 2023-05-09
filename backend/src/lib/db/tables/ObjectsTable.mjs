@@ -13,13 +13,10 @@ const Object = db.define('Object', {
     },
     IDUser: {
         type: DataTypes.INTEGER
-    },
-    IDPhoto: {
-        type: DataTypes.INTEGER
-    },
-    Date: {
-        type: DataTypes.DATE
     }
-});
+}, {
+    paranoid: true
+}   
+);
 
 export default Object

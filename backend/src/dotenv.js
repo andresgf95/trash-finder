@@ -1,2 +1,2 @@
-const dotenv = req("dotenv")
+const dotenv = require("dotenv")
 dotenv.config()

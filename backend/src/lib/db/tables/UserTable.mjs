@@ -6,13 +6,13 @@ const User = db.define('User', {
         type: DataTypes.STRING,
         unique: true
     },
+    passResume: {
+        type: DataTypes.STRING
+    },
     Karma: {
         type: DataTypes.INTEGER
     },
     Email: {
-        type: DataTypes.STRING
-    },
-    Has: {
         type: DataTypes.STRING
     }
 }, 

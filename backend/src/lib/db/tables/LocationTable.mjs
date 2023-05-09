@@ -12,6 +12,8 @@ const Location = db.define('Location', {
     Longitude: {
         type: DataTypes.NUMBER
     }
+}, {
+    paranoid: true
 });
 
 export default Location

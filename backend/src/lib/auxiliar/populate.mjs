@@ -6,19 +6,23 @@ const users = [
         UserName: "Ramón",
         Karma: 0,
         Email: "ramon@ramonmail.gal",
-        Has: "4f2430a7ae267fd4f37ed3f20b8c677c59dee284d45d1b062751c421c9d5e41e3e666848d2781a594a38caa60ea6323dc9f723ed49906f8dc57ebe9c9d66339c"
     }, {
         id: 1,
         UserName: "Josefa",
         Karma: 298,
         Email: "josefa@lugomail.gal",
-        Has: "23ñoj46b23o45ub6"
     }, {
         id: 2,
         UserName: "AugaBendita69",
         Karma: -40,
         Email: "ab69@pp.es",
-        Has: "12ñjlkbn12l5jñb"
+    },
+    {
+        id: 3,
+        UserName: "Andres",
+        passResume: "$2b$10$0hDbmFnnJwAtu1AWDO61KeahL1g2UHWX192r9gDgbciSrsL82VJ/K",
+        Karma: 0,
+        Email: "hola@hola.gal"
     }
 ]
 

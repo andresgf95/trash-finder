@@ -7,9 +7,6 @@ const SaveList = db.define('SaveList', {
     },
     IDUser: {
         type: DataTypes.INTEGER
-    },
-    IDDate: {
-        type: DataTypes.INTEGER
     }
 });
 

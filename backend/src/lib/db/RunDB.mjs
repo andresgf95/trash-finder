@@ -24,6 +24,15 @@ UserProfile.belongsTo(User)
 User.hasMany(Object)
 Object.belongsTo(User)
 
+Object.hasMany(File, {
+    as: "ItemPhoto",
+    onDelete: 'CASCADE',
+    onUpdate: 'CASCADE'
+})
+File.belongsTo(Object, {
+    as: "ItemPhoto"
+})
+
 //await db.sync({ alter: true })
 await db.sync()
 

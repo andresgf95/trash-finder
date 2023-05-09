@@ -2,10 +2,10 @@ import { compare } from "bcrypt"
 import jwt from "jsonwebtoken"
 import { api } from "./path.mjs";
 import { app } from "./RunExpress.mjs";
-import errorHandler from "../controllers/ErrorHandler.mjs";
+import exceptionHandler from "../controllers/exceptionHandler.mjs";
 import { User } from "../db/RunDB.mjs"
 
-app.post(api.fixedPath+api.sesionPath, async (req, res)=>{
+app.post(api.sesionPath, async (req, res)=>{
     try {
 
         const user = await User.findOne({
@@ -15,7 +15,7 @@ app.post(api.fixedPath+api.sesionPath, async (req, res)=>{
         if ( user === null ) return res.sendStatus(401)
 
         const authenticated = await compare(
-            req.body.password, user.Has
+            req.body.password, user.passResume
         )
 
         if (authenticated) {
@@ -26,6 +26,6 @@ app.post(api.fixedPath+api.sesionPath, async (req, res)=>{
         return res.sendStatus(401)
         
     } catch (err) {
-        return errorHandler(err, res)
+        return exceptionHandler(err, res)
     }
 })
