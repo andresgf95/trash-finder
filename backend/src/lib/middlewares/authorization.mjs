@@ -1,4 +1,4 @@
-import jwt from "jsonwebtoken"
+/*import jwt from "jsonwebtoken"
 
 function middlewareAuthorization (req, res, next) {
     try {
@@ -13,4 +13,4 @@ function middlewareAuthorization (req, res, next) {
 
 export {
     middlewareAuthorization
-}
+}*/

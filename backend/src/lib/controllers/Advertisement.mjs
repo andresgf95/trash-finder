@@ -1,12 +1,12 @@
 import { app } from "../api/RunExpress.mjs";
 import { api } from "../api/path.mjs";
 import { Object } from "../db/RunDB.mjs";
-import { middlewareAuthorization } from "../middlewares/authorization.mjs";
+//import { middlewareAuthorization } from "../middlewares/authorization.mjs";
 import jsonMiddleware from "../middlewares/JsonMiddleware.mjs";
 import exceptionHandler from "./exceptionHandler.mjs";
 
 // deploy all advertisements
-app.get(api.objectPath, middlewareAuthorization, async (_, res)=>{
+app.get(api.objectPath, /*middlewareAuthorization,*/ async (_, res)=>{
     try {
         res.json(await Object.findAll())
     } catch (err) {
@@ -16,7 +16,7 @@ app.get(api.objectPath, middlewareAuthorization, async (_, res)=>{
 )
 
 // get one single advertisement
-app.get(api.objectPath, middlewareAuthorization, async (req, res)=>{
+app.get(api.objectPath, /*middlewareAuthorization,*/ async (req, res)=>{
     try {
         const NewObject = await Object.findByPk(req.body.id)
         res.status(200).send(NewObject)
@@ -27,7 +27,7 @@ app.get(api.objectPath, middlewareAuthorization, async (req, res)=>{
 )
 
 // create a new Advertisement
-app.post(api.objectPath, jsonMiddleware, middlewareAuthorization, async (req, res)=>{
+app.post(api.objectPath, jsonMiddleware, /*middlewareAuthorization,*/ async (req, res)=>{
     try {
         const CreateAdvertisement = await Object.create(req.body)
         res.status(200).json(CreateAdvertisement)
@@ -38,7 +38,7 @@ app.post(api.objectPath, jsonMiddleware, middlewareAuthorization, async (req, re
 )
 
 // Modify Avertisement
-app.put(api.objectPath, jsonMiddleware, middlewareAuthorization, async (req, res)=>{
+app.put(api.objectPath, jsonMiddleware, /*middlewareAuthorization,*/ async (req, res)=>{
     try {
         const putObject = await Object.findByPk(req.body.id)
         const newData = await putObject.update(req.body)
@@ -50,7 +50,7 @@ app.put(api.objectPath, jsonMiddleware, middlewareAuthorization, async (req, res
 )
 
 //Delete Advertisement
-app.delete(api.objectPath, jsonMiddleware, middlewareAuthorization, async (req, res)=>{
+app.delete(api.objectPath, jsonMiddleware, /*middlewareAuthorization,*/ async (req, res)=>{
 try {
     const deleteAdvertisement = await Object.destroy({
         where: { id: req.body.id }})
