@@ -4,4 +4,4 @@ import "../controllers/User.mjs"
 import "./apiAuthorization.mjs"
 
 
-app.listen(8000, ()=>{console.log("🐧🐧🐧👽👽👽")})
+app.listen(process.env.PORT, ()=>{console.log("🐧🐧🐧👽👽👽")})

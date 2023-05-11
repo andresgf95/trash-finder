@@ -1,4 +1,4 @@
-/*import { compare } from "bcrypt"
+import { compare } from "bcrypt"
 import jwt from "jsonwebtoken"
 import { api } from "./path.mjs";
 import { app } from "./RunExpress.mjs";
@@ -28,4 +28,4 @@ app.post(api.sesionPath, jsonMiddleware, async (req, res)=>{
     } catch (err) {
         return exceptionHandler(err, res)
     }
-})*/
+})

@@ -6,21 +6,22 @@ import { middlewareAuthorization } from "../middlewares/authorization.mjs";
 import jsonMiddleware from "../middlewares/JsonMiddleware.mjs";
 import { json } from "sequelize";
 
-//Find all Files
-app.get(api.FilePath, async (_, res)=>{
+//Find One single File
+app.get(api.FilePath, async (req, res)=>{
     try {
-        res.json(File.findAll())
+        const SingleFile = File.findByPk(req.body.id)
+        res.status(200).json(SingleFile)
     } catch (err) {
         exceptionHandler(err, res)
     }
 }
 )
 
-//Find One single File
-app.get(api.FilePath, async (req, res)=>{
+// Post Files
+app.post(api.FilePath, jsonMiddleware, middlewareAuthorization, async (req, res)=>{
     try {
-        const SingleFile = File.findByPk(req.body.id)
-        res.status(200).json(SingleFile)
+        const newFile = File.create(req.body)
+        res.status(200).json(newFile)
     } catch (err) {
         exceptionHandler(err, res)
     }

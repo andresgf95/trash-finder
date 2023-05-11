@@ -1,19 +1,18 @@
 import { app } from "../api/RunExpress.mjs";
-//import { hash } from "bcrypt";
+import { hash } from "bcrypt";
 import exceptionHandler from "./exceptionHandler.mjs";
 import { api } from "../api/path.mjs";
 import { User } from "../db/RunDB.mjs";
-//import { middlewareAuthorization } from "../middlewares/authorization.mjs";
+import { middlewareAuthorization } from "../middlewares/authorization.mjs";
 import jsonMiddleware from "../middlewares/JsonMiddleware.mjs";
 
 // Create a new User
 app.post(api.userPath, jsonMiddleware, async (req, res)=>{
     try {
-        /*const passResume = await hash(req.body.password, 10)
+        const passResume = await hash(req.body.password, 10)
         const userData = {...req.body, passResume}
-        const user = await User.create(userData)*/
-        const newUser = User.create(req.body)
-        res.status(201).json(newUser)
+        const user = await User.create(userData)
+        res.status(201).json(user)
     } catch (err) {
         exceptionHandler(err, res)
     }
@@ -32,7 +31,7 @@ app.get(api.userPath, async (_, res)=>{
 )
 
 // Modify a user account
-app.put(api.userPath, jsonMiddleware, /*middlewareAuthorization,*/ async (req, res)=>{
+app.put(api.userPath, jsonMiddleware, middlewareAuthorization, async (req, res)=>{
     try {
         const modifyUser = await User.findByPk(req.body.id)
         const newUserModify = modifyUser.update(req.body)
@@ -44,7 +43,7 @@ app.put(api.userPath, jsonMiddleware, /*middlewareAuthorization,*/ async (req, r
 )
 
 // Soft delete of User account, using paranoid
-app.delete(api.userPath, jsonMiddleware, /*middlewareAuthorization,*/ async (req, res)=>{
+app.delete(api.userPath, jsonMiddleware, middlewareAuthorization, async (req, res)=>{
     try {
         const deleteUser = await User.destroy({
             where: { UserName: req.body.UserName }})
