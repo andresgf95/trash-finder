@@ -19,6 +19,15 @@ app.post(api.userPath, jsonMiddleware, async (req, res)=>{
 }
 )
 
+app.get(api.userPath, middlewareAuthorization, async (req, res)=>{
+    try {
+        
+    } catch (err) {
+        exceptionHandler(err, res)
+    }
+}
+)
+
 // Só para probas
 app.get(api.userPath, async (_, res)=>{
     try {
