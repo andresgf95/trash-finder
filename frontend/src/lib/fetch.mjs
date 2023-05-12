@@ -1,7 +1,7 @@
 import { api, urlBase } from "../lib/path.mjs"
 
 async function getPass(UserName, password, handler) {
-    const res = await fetch(urlBase+api.fixedPath+api.sesionPath, {
+    const res = await fetch("http://localhost:8000/api/v1.0/users/sesion/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ UserName, password })
@@ -22,14 +22,23 @@ async function PostItem(Object, jwt, handler) {
     handler( res.ok ? await res.json() : false )
 }
 
-async function CreateUser(UserName, password, Email, handler) {
+async function CreateUser(object, handler) {
     const res = await fetch("http://localhost:8000/api/v1.0/users/", {
         method: "POST",
         headers: {"Content-Type": "application/json"},
-        body: JSON.stringify(UserName, password, Email)})
+        body: JSON.stringify(object)})
     handler(res.ok ? await res.json() : false)
+}
+
+async function AdvertisementList(jwt, handler) {
+    const res = await fetch ("http://localhost:8000/api/v1.0/objects/all", {
+        headers: {
+            authorization: "Bearer "+jwt
+        }
+    })
+    handler( res.ok ? await res.json() : false )
 }
 
 
 
-export { getPass, PostItem, CreateUser } 
+export { getPass, PostItem, CreateUser, AdvertisementList } 

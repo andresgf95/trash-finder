@@ -1,6 +1,6 @@
-/*import Footer from "./components/Footer";
-import Header from "./components/Header";
-import SmallImage from "./components/SmallImage";
+import Footer from "./components/Footer";
+import Header from "./components/Header/Header";
+/*import SmallImage from "./components/SmallImage";
 import ProfileImage from "./components/UserProfileImg";
 
 import LogIn from "./views/LogIn";
@@ -11,13 +11,19 @@ import { AuthorizationProvider } from "./services/authorization"
 import Description from "./views/description";
 import "./App.css"*/
 
+import AddedList from "./components/AddedList";
+import { AuthorizationProvider } from "./services/authorization";
 import CreateAccount from "./views/CreateAccount";
+import LogIn from "./views/LogIn";
 
 
 
 function App() {
 
   return(
+    <>
+    <Header/>
+    </>
     /*
    <>
       <Header/>
@@ -39,11 +45,7 @@ function App() {
           </BrowserRouter>
         </AuthorizationProvider>
       <Footer/>
-    </>
-    */
-   <>
-   <CreateAccount/>
-   </>
+    </>*/
   );
 }
 

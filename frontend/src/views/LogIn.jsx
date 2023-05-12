@@ -3,50 +3,38 @@ import { authorizationContext } from "../services/authorization";
 import { getPass } from "../lib/fetch.mjs"
 import { useNavigate } from "react-router-dom"; 
 
-function LogIn({ruta}) {
+function LogIn(/*{route}*/) {
 
-//    const navigate = useNavigate()
+   //const navigate = useNavigate()
 
-    const { pass, savePass } = useContext(authorizationContext)
+    const { consent, savePass, logOut} = useContext(authorizationContext)
 
-    const [UserName, setUserName] = useState("")
-    const [password, setPassword] = useState("")
+    const [UserName, setUserName] = useState("Andres")
+    const [password, setPassword] = useState("Cabra")
 
-    function UserInput(event) {
-        setUserName(event.target.value)
-    }
-
-    function PasswordInput(event) {
-        setPassword(event.target.value)
-    }
-
-    function SubmitInput() {
-        getPass(UserName, password, Verify)
-    }
-
-    function Verify(token) {
-        if(token) {
-            savePass(token)
-            //if (ruta) navigate(ruta)
+    function Verify(pass) {
+        if(pass) {
+            savePass(pass)
+           // if (route) navigate(route)
         } else alert("Incorrecto")
     }
 
-
     return(
         <>
-        {! pass &&
+        {! consent &&
         <div>
             <label>
                 Usuario
-                <input type="text" value={UserName} onInput={UserInput}/>
+                <input type="text" value={UserName} onInput={(event)=>{setUserName(event.target.value)}}/>
             </label>
             <label>
                 Contrasinal
-                <input type="text" value={password} onInput={PasswordInput}/>
+                <input type="text" value={password} onInput={(event)=>{setPassword(event.target.value)}}/>
             </label>
-            <button onClick={SubmitInput}>LogIn</button>
+            <button onClick={()=>{getPass(UserName, password, Verify)}}>LogIn</button>
         </div>
         }
+        <button onClick={()=>{logOut()}}>AAAAAAAAAAAAAAAAA</button>
         </>
     );
   }

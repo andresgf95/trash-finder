@@ -1,0 +1,32 @@
+.Header {
+    overflow: hidden;
+    background-color: #f1f1f1;
+    padding: 2px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.Header_right {
+    float: right;
+}
+
+.Logo {
+    float: left;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px; 
+    line-height: 25px;
+    border-radius: 4px;
+}
+
+.button {
+    background-color: transparent;
+    border-color: rgb(134, 134, 134);
+    color: black;
+    font-size: 0.5rem;
+    margin-right: 1rem;
+}
