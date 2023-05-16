@@ -3,7 +3,8 @@ import db from "../DefineDB.mjs";
 
 const File = db.define('File', {
     Data: {
-        type: DataTypes.TEXT("long")
+        type: DataTypes.TEXT("long"),
+        allowNull: false
     }
 }, {
     paranoid: true

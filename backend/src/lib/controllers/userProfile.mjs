@@ -28,12 +28,6 @@ app.post(api.userProfile, jsonMiddleware, middlewareAuthorization, async (req, r
         } else {
             profile = await user.createUserProfile(req.body)
         }
-        let img = await profile.getProfileImg()
-        if ( img ) {
-            await img.update({ data: req.body.ProfileImg })
-        } else {
-            await profile.createProfileImg({ data: req.body.ProfileImg })
-        }
         res.sendStatus(201)
     } catch (err) {
         exceptionHandler(err, res)

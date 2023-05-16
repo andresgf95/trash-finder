@@ -3,16 +3,16 @@ import db from "../DefineDB.mjs";
 
 const Object = db.define('Object', {
     Title: {
-        type: DataTypes.STRING
+        type: DataTypes.STRING,
+        allowNull: false
     },
     Description: {
-        type: DataTypes.TEXT
+        type: DataTypes.TEXT,
+        allowNull: false
     },
     LocationDescription: {
-        type: DataTypes.TEXT
-    },
-    IDUser: {
-        type: DataTypes.INTEGER
+        type: DataTypes.TEXT,
+        allowNull: false
     }
 }, {
     paranoid: true

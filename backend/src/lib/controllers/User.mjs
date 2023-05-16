@@ -16,28 +16,7 @@ app.post(api.userPath, jsonMiddleware, async (req, res)=>{
     } catch (err) {
         exceptionHandler(err, res)
     }
-}
-)
-
-app.get(api.userPath, middlewareAuthorization, async (req, res)=>{
-    try {
-        
-    } catch (err) {
-        exceptionHandler(err, res)
-    }
-}
-)
-
-// Só para probas
-app.get(api.userPath, async (_, res)=>{
-    try {
-        res.json(await User.findAll())
-    } catch (err) {
-        exceptionHandler(err, res)
-    }
-}
-    
-)
+})
 
 // Modify a user account
 app.put(api.userPath, jsonMiddleware, middlewareAuthorization, async (req, res)=>{
@@ -48,8 +27,7 @@ app.put(api.userPath, jsonMiddleware, middlewareAuthorization, async (req, res)=
     } catch (err) {
         exceptionHandler(err, res)
     }
-}
-)
+})
 
 // Soft delete of User account, using paranoid
 app.delete(api.userPath, jsonMiddleware, middlewareAuthorization, async (req, res)=>{
@@ -61,5 +39,4 @@ app.delete(api.userPath, jsonMiddleware, middlewareAuthorization, async (req, re
     } catch (err) {
         exceptionHandler(err, res)
     }
-}
-)
+})
