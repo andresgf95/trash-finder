@@ -1,60 +1,52 @@
 import { app } from "../api/RunExpress.mjs";
-import { api } from "../api/path.mjs";
+import { path } from "../api/path.mjs";
 import { Object } from "../db/RunDB.mjs";
 import { middlewareAuthorization } from "../middlewares/authorization.mjs";
 import jsonMiddleware from "../middlewares/JsonMiddleware.mjs";
 import exceptionHandler from "./exceptionHandler.mjs";
 
 // deploy all advertisements
-app.get(api.AllobjectPath, middlewareAuthorization, async (_, res)=>{
+app.get(path.allAdvertisements, middlewareAuthorization, async (_, res)=>{
     try {
         res.json(await Object.findAll())
     } catch (err) {
         exceptionHandler(err, res)
     }
-}
-)
+})
 
 // get one single advertisement
-app.get(api.userPost, middlewareAuthorization, async (req, res)=>{
+app.get(path.advertisements, middlewareAuthorization, async (req, res)=>{
     try {
-        const NewObject = await Object.findByPk({ where: { id: req.body.id}})
-        res.status(200).send(NewObject)
+        const adv = await Object.findOne({ where: { id: req.params.id}})
+        adv ? res.status(200).json(adv) : res.status(404).send("no se ha encontrado")
     } catch (err) {
         exceptionHandler(err, res)
     }
-}
-)
+})
 
-// create a new Advertisement
-app.post(api.userPost, jsonMiddleware, middlewareAuthorization, async (req, res)=>{
+app.post(path.allAdvertisements, jsonMiddleware, middlewareAuthorization, async (req, res)=>{
     try {
-            const CreateAdvertisement = await Object.create(req.body)
-            res.status(200).json(CreateAdvertisement)
+            const createAdv = await Object.create(req.body)
+            res.status(200).json(createAdv)
     } catch (err) {
         exceptionHandler(err, res)
     }
-}
-)
+})
 
-// Modify Avertisement
-app.put(api.userPost, jsonMiddleware, middlewareAuthorization, async (req, res)=>{
+app.put(path.allAdvertisements, jsonMiddleware, middlewareAuthorization, async (req, res)=>{
     try {
-        const putObject = await Object.findByPk(req.body.id)
-        const newData = await putObject.update(req.body)
-        res.status(200).json(newData)
+        const modify = await Object.findByPk(req.body.id)
+        const adv = await modify.update(req.body)
+        res.status(200).json(adv)
     } catch (err) {
         exceptionHandler(err, res)
     }
-}
-)
+})
 
-// Delete
-app.delete(api.userPost, jsonMiddleware, middlewareAuthorization, async (req, res)=>{
+app.delete(path.allAdvertisements, jsonMiddleware, middlewareAuthorization, async (req, res)=>{
 try {
-    const deleteAdvertisement = await Object.destroy( { where: { id: req.body.id } } )
-        res.sendStatus(200)
-        if ( deleteAdvertisement === null ) return res.sendStatus(401)
+    const deleteAdv = await Object.destroy( { where: { id: req.body.id } } )
+    (deleteAdv === null) ? res.sendStatus(200) : res.sendStatus(401) 
 } catch (err) {
     exceptionHandler(err, res)
 }

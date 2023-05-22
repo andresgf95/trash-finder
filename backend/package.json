@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node src/main.mjs",
     "dev": "nodemon -r ./dotenv.js src/main.mjs",
-    "populate": "node src/lib/auxiliar/populate.mjs"
+    "populate": "node src/lib/auxiliar/populate.mjs",
+    "pupoObj": "node src/lib/auxiliar/popuObjc.mjs"
   },
   "keywords": [],
   "author": "",
@@ -17,11 +18,12 @@
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.0",
+    "node-cron": "^3.0.2",
     "sequelize": "^6.31.0",
     "sqlite3": "^5.1.6"
   },
   "devDependencies": {
-    "nodemon": "^2.0.22",
-    "dotenv": "^16.0.3"
+    "dotenv": "^16.0.3",
+    "nodemon": "^2.0.22"
   }
 }

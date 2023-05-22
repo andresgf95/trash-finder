@@ -1,25 +1,23 @@
 import { app } from "../api/RunExpress.mjs";
 import { hash } from "bcrypt";
 import exceptionHandler from "./exceptionHandler.mjs";
-import { api } from "../api/path.mjs";
-import { User } from "../db/RunDB.mjs";
+import { path } from "../api/path.mjs";
+import { User, UserProfile } from "../db/RunDB.mjs";
 import { middlewareAuthorization } from "../middlewares/authorization.mjs";
 import jsonMiddleware from "../middlewares/JsonMiddleware.mjs";
 
-// Create a new User
-app.post(api.userPath, jsonMiddleware, async (req, res)=>{
+app.post(path.user, jsonMiddleware, async (req, res)=>{
     try {
         const passResume = await hash(req.body.password, 10)
         const userData = {...req.body, passResume}
-        const user = await User.create(userData)
+        const user = await User.create(userData) && UserProfile.create()
         res.status(201).json(user)
     } catch (err) {
         exceptionHandler(err, res)
     }
 })
 
-// Modify a user account
-app.put(api.userPath, jsonMiddleware, middlewareAuthorization, async (req, res)=>{
+app.put(path.user, jsonMiddleware, middlewareAuthorization, async (req, res)=>{
     try {
         const modifyUser = await User.findByPk(req.body.id)
         const newUserModify = modifyUser.update(req.body)
@@ -29,14 +27,20 @@ app.put(api.userPath, jsonMiddleware, middlewareAuthorization, async (req, res)=
     }
 })
 
-// Soft delete of User account, using paranoid
-app.delete(api.userPath, jsonMiddleware, middlewareAuthorization, async (req, res)=>{
+app.delete(path.user, jsonMiddleware, middlewareAuthorization, async (req, res)=>{
     try {
         const deleteUser = await User.destroy({
-            where: { UserName: req.body.UserName }})
-            res.sendStatus(200)
-            if ( deleteUser === null ) return res.sendStatus(401)
+            where: { id: req.body.id }})
+            if ( deleteUser === null ) {
+                res.sendStatus(401)
+            } else {
+                res.sendStatus(200)
+            }
     } catch (err) {
         exceptionHandler(err, res)
     }
 })
+
+// PROBAS
+app.get(path.user, async (_,res)=>{
+    res.json(await User.findAll())})

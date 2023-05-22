@@ -1,4 +1,4 @@
-import { User, Object, File } from "../db/RunDB.mjs";
+import { User } from "../db/RunDB.mjs";
 
 const users = [
     {
@@ -25,25 +25,4 @@ const users = [
     }
 ]
 
-const objects = [
-    {
-        Title: "Alfombra",
-        Description: "qwèifnqwèifnqweipfqwoifhqwiufhiwqufpioqueh"
-    }, {
-        Title: "Arandano",
-        Description: "ergwergwegrewrgwergggggggggggggggwergwergwerg"
-    }, {
-        Title: "Zarihuella",
-        Description: "wergwergggggggggggwergwerwrtyyyyyyyyyywerwreywer"
-    }
-]
-
-const files = [
-    {
-        Data: "a"
-    }
-]
-
 User.bulkCreate(users)
-Object.bulkCreate(objects)
-File.bulkCreate(files)

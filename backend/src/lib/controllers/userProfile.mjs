@@ -1,36 +1,34 @@
 import { app } from "../api/RunExpress.mjs";
-import { api } from "../api/path.mjs";
+import { path } from "../api/path.mjs";
 import jsonMiddleware from "../middlewares/JsonMiddleware.mjs";
 import { middlewareAuthorization } from "../middlewares/authorization.mjs";
 import exceptionHandler from "./exceptionHandler.mjs";
 import { User, UserProfile } from "../db/RunDB.mjs";
 
-// Get a User Profile
-app.get(api.userProfile, middlewareAuthorization, async (_, res)=>{
+// Petición de perfil de usuario
+app.get(path.profileID, middlewareAuthorization, async (_, res)=>{
     try {
-        const user = User.findByPk(res.locals.authorization.id)
-        const profile = user.getUserProfile()
-        res.status(200).json(profile)
+        const user = UserProfile.findByPk(req.body.id)
+        res.status(200).json(user)
     } catch (err) {
         exceptionHandler(err, res)
     }
 
-}
-)
+})
 
 // Create a User profile
-app.post(api.userProfile, jsonMiddleware, middlewareAuthorization, async (req, res)=>{
+/*app.post(path.userProfile, jsonMiddleware, middlewareAuthorization, async (req, res)=>{
     try {
-        const user = User.findByPk(res.locals.authorization.id)
-        let profile = await user.getUserProfile()
-        if ( profile ) { 
-            await profile.update(req.body)
+        const user = UserProfile.findAll({ where: { 
+            [Op.eq]: [{id: req.body.id}, {UserId: }]
+        }})
+        if ( !user ) { 
+            await user.create(req.body)
+            res.sendStatus(200)
         } else {
-            profile = await user.createUserProfile(req.body)
+            res.sendStatus(403)
         }
-        res.sendStatus(201)
     } catch (err) {
         exceptionHandler(err, res)
     }
-}
-)
+})*/
