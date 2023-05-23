@@ -6,15 +6,15 @@ import UserProfile from "./tables/UserProfile.mjs";
 import User from "./tables/UserTable.mjs";
 
 User.hasOne(UserProfile)
-UserProfile.belongsTo(User)
+UserProfile.belongsTo(User, { as: "profile" })
 
 User.hasMany(Object)
-Object.belongsTo(User)
+Object.belongsTo(User, { as: "ads" })
 
 Object.hasOne(Location)
-Location.belongsTo(Object)
+Location.belongsTo(Object, { as: "loc" })
 
-Object.hasMany(File)
+Object.hasMany(File, { as:"files" })
 File.belongsTo(Object)
 
 //await db.sync({ alter: true })

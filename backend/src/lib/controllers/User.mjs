@@ -10,7 +10,7 @@ app.post(path.user, jsonMiddleware, async (req, res)=>{
     try {
         const passResume = await hash(req.body.password, 10)
         const userData = {...req.body, passResume}
-        const user = await User.create(userData) && UserProfile.create()
+        const user = await User.create(userData)
         res.status(201).json(user)
     } catch (err) {
         exceptionHandler(err, res)
@@ -19,7 +19,7 @@ app.post(path.user, jsonMiddleware, async (req, res)=>{
 
 app.put(path.user, jsonMiddleware, middlewareAuthorization, async (req, res)=>{
     try {
-        const modifyUser = await User.findByPk(req.body.id)
+        const modifyUser = await User.findByPk(res.locals.authorization.id)
         const newUserModify = modifyUser.update(req.body)
         res.status(200).json(newUserModify)
     } catch (err) {
