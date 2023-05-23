@@ -1,17 +1,13 @@
-import { api, urlBase } from "../lib/path.mjs"
-
 async function getPass(UserName, password, handler) {
     const res = await fetch("http://localhost:8000/api/v1.0/users/sesion/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ UserName, password })
-    }
-        )
+        body: JSON.stringify( { UserName, password } )} )
     handler(res.ok ? await res.text() : false )
 }
 
 async function PostItem(Object, jwt, handler) {
-    const res = await fetch(urlBase+api.fixedPath+api.objectPath, {
+    const res = await fetch("http://localhost:8000/api/v1.0/objects/", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -30,8 +26,8 @@ async function CreateUser(object, handler) {
     handler(res.ok ? await res.json() : false)
 }
 
-async function AdvertisementList(jwt, handler) {
-    const res = await fetch ("http://localhost:8000/api/v1.0/objects/all", {
+async function getAdv(jwt, handler) {
+    const res = await fetch ("http://localhost:8000/api/v1.0/objects/", {
         headers: {
             authorization: "Bearer "+jwt
         }
@@ -41,4 +37,4 @@ async function AdvertisementList(jwt, handler) {
 
 
 
-export { getPass, PostItem, CreateUser, AdvertisementList } 
+export { getPass, PostItem, CreateUser, getAdv } 

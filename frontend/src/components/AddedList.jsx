@@ -1,25 +1,25 @@
 import styles from "./Module css Components/Saved_AddedList.module.css"
-import { AdvertisementList } from "../lib/fetch.mjs";
+import { getAdv } from "../lib/fetch.mjs";
 import { useEffect, useState } from "react";
 
 function AddedList() {
 
-    const [ Advertisement, setAdvertisement ] = useState([0,1,2,3,4,5])
+    const [ advertisement, setAdvertisement ] = useState([])
 
     useEffect(
-        ()=>{ AdvertisementList(setAdvertisement) },
+        ()=>{ setAdvertisement(getAdv) },
         []
     )
 
     return(
         <>
             <ul>
-            { Advertisement.map(
-                Advertisements => 
+            { advertisement.map(
+                advertisements => 
                 <li>
-                    <p><strong>{Advertisements.Title}</strong></p>
-                    <p>{Advertisements.Description}</p>
-                    <p>{Advertisements.LocationDescription}</p>
+                    <p><strong>{advertisements.Title}</strong></p>
+                    <p>{advertisements.Description}</p>
+                    <p>{advertisements.LocationDescription}</p>
                 </li>
             )}
         </ul>

@@ -4,6 +4,4 @@ function aDataURL(file, handler) {
     reader.readAsDataURL(file);
 }
 
-export {
-    aDataURL
-}
+export { aDataURL }
