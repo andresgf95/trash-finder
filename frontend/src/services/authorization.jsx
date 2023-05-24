@@ -4,7 +4,7 @@ const authorizationContext = createContext()
 const storage = localStorage
 const storageKey = "pass"
 
-function AuthorizationProvider({children}) {
+function AuthorizationService( {children} ) {
     
     const [ pass, setPass ] = useState(storage.getItem(storageKey) ?? false)
     const [ consent, setConsent ] = useState(Boolean(pass))
@@ -34,4 +34,4 @@ function AuthorizationProvider({children}) {
 
 }
 
-export { AuthorizationProvider, authorizationContext }
+export { AuthorizationService, authorizationContext }

@@ -1,31 +1,27 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { aDataURL } from "../lib/Files.mjs"
-import { ObjectData } from "../lib/ObjectsForm.mjs"
 import PostItem from "../lib/fetch.mjs"
+import { authorizationContext } from "../services/authorization.jsx"
 
 function AddItemForm() {
 
-
+    const { pass } = useContext(authorizationContext)
 
     const [ title, setTitle ] = useState("")
     const [ description, setDescription ] = useState("")
-    const [ location, setLocation ] = useState("")
-    const [ file, setFile ] = useState()
-
-    function handlerFile(event) {
-        const file = event.target.files[0]
-        if (file) aDataURL(file, setFile)
-        else setFile("")
-    }
+    const [ locdescription, setLocdescription ] = useState("")
+    const [ position, setPosition ] = useState("")
+    const [ file, setFile ] = useState("")
 
     function submit() {
         const DataForm = {
             title,
             description,
-            location,
+            locdescription,
+            location: position,
             file
         }
-        PostItem(DataForm)
+        PostItem(DataForm, pass, outcome)
     }
 
     function outcome(data) {
@@ -35,16 +31,33 @@ function AddItemForm() {
     return (
         <>
         <label>
-            Título<input type="text" value={title} onInput={(event)=>{setTitle(event.target.value)}}/>
+            Título
+            <input type="text" value={title} onInput={(event)=>{
+                setTitle(event.target.value) } } 
+            />
         </label>
         <label>
-            Descripción<input type="text" value={description} onInput={(event)=>{setDescription(event.target.value)}}/>
+            Descripción
+            <input type="text" value={description} onInput={(event)=>{
+                setDescription(event.target.value) } } 
+            />
         </label>
         <label>
-            Descripción da ubicación<input type="text" value={location} onInput={(event)=>{setLocation(event.target.value)}}/>
+            Descripción da ubicación
+            <input type="text" value={locdescription} onInput={ (event)=>{
+                setLocdescription(event.target.value) } } 
+            />
         </label>
         <label>
-            Descripción<input type="file" onInput={handlerFile}/>
+            Descripción
+            <input type="file" onInput={ (event)=> {
+                const file =  event.target.files[0]
+                if (file) aDataURL(file, setFile)
+                else setFile("") } }
+            />
+        </label>
+        <label>
+            Ubicacion<input type="" />
         </label>
         <button onClick={submit}>Gardar</button>
         </>

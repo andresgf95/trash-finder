@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 function LogIn(/*{route}*/) {
 
-   //const navigate = useNavigate()
+    //const navigate = useNavigate()
 
     const { consent, savePass, logOut} = useContext(authorizationContext)
 
@@ -15,7 +15,7 @@ function LogIn(/*{route}*/) {
     function Verify(pass) {
         if(pass) {
             savePass(pass)
-           // if (route) navigate(route)
+           //if (route) navigate(route)
         } else alert("Incorrecto")
     }
 
@@ -34,7 +34,7 @@ function LogIn(/*{route}*/) {
             <button onClick={()=>{getPass(UserName, password, Verify)}}>LogIn</button>
         </div>
         }
-        <button onClick={()=>{logOut()}}>AAAAAAAAAAAAAAAAA</button>
+        <button onClick={()=>{logOut()}}>LOGOUT</button>
         </>
     );
   }

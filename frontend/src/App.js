@@ -1,4 +1,4 @@
-import Footer from "./components/Footer";
+/*import Footer from "./components/Footer";
 import Header from "./components/Header/Header";
 import SmallImage from "./components/SmallImage";
 import ProfileImage from "./components/UserProfileImg";
@@ -8,20 +8,25 @@ import NotificationList from "./views/NotificationList";
 import UserPanel from "./views/UserPanel";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import { AuthorizationProvider } from "./services/authorization"
-import Description from "./views/description";
+import Description from "./views/description";*/
 import "./App.css"
+import { ObjectListService } from "./services/Advertisements";
+//import Map from "./components/Xeolocalizacion";
 
-import AddedList from "./components/AddedList";
+/*import AddedList from "./components/AddedList";
 import { AuthorizationProvider } from "./services/authorization";
 import CreateAccount from "./views/CreateAccount";
 import LogIn from "./views/LogIn";
-import Backoffice from "./views/Backoffice";
+import Backoffice from "./views/Backoffice";*/
+
+import { AuthorizationService } from "./services/authorization";
+import LogIn from "./views/LogIn";
 
 
 function App() {
 
   return(
-   <>
+   /*<>
       <Header/>
         <AuthorizationProvider>
           <BrowserRouter>
@@ -50,6 +55,14 @@ function App() {
           </BrowserRouter>
         </AuthorizationProvider>
       <Footer/>
+    </>*/
+    <>
+      <AuthorizationService>
+        <LogIn/>
+        <ObjectListService>
+          
+        </ObjectListService>
+      </AuthorizationService>
     </>
   );
 }
