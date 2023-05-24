@@ -10,7 +10,7 @@ app.get(path.allAdvertisements, middlewareAuthorization, async (_, res) => {
     try {
         res.json(await Object.findAll({
             order: [["createdAt", "DESC"]],
-            include: "files"}
+            include: [ { all: true } ] }
         ))
     } catch (err) {
         exceptionHandler(err, res)
