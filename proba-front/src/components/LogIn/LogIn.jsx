@@ -2,11 +2,11 @@ import { useContext, useState } from "react";
 import { authorizationContext } from "../../services/authorization";
 import { getPass } from "../../lib/UserFetch.mjs"
 import styles from "./LogIn.module.css"
-//import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom"; 
 
-function LogIn(/*{route}*/) {
+function LogIn({route}) {
 
-    //const navigate = useNavigate()
+    const navigate = useNavigate()
 
     const { consent, savePass, logOut } = useContext ( authorizationContext )
 
@@ -16,7 +16,7 @@ function LogIn(/*{route}*/) {
     function Verify(pass) {
         if  ( pass ) {
             savePass ( pass )
-           //if (route) navigate(route)
+           if (route) navigate(route)
         } else alert("Incorrecto")
     }
 
@@ -35,7 +35,6 @@ function LogIn(/*{route}*/) {
             <button className={styles.button} onClick={()=>{getPass(UserName, password, Verify)}}>LogIn</button>
         </div>
         }
-        <button onClick={()=>{logOut()}}>LOGOUT</button>
         </>
     );
   }
