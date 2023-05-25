@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node src/main.mjs",
     "dev": "nodemon -r ./dotenv.js src/main.mjs",
-    "populate": "node src/lib/auxiliar/populate.mjs"
+    "populate": "node src/lib/auxiliar/populate.mjs",
+    "autodelete": "node src/tasks.mjs"
   },
   "keywords": [],
   "author": "",

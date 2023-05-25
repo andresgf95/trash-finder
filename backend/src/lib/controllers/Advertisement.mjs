@@ -10,7 +10,7 @@ app.get(path.allAdvertisements, middlewareAuthorization, async (_, res) => {
     try {
         res.json(await Object.findAll({
             order: [["createdAt", "DESC"]],
-            include: [ { all: true } ] }
+            include: [ { all: true } ] },
         ))
     } catch (err) {
         exceptionHandler(err, res)
@@ -20,7 +20,7 @@ app.get(path.allAdvertisements, middlewareAuthorization, async (_, res) => {
 // get one single advertisement
 app.get(path.advertisements, middlewareAuthorization, async (req, res) => {
     try {
-        const adv = await Object.findOne({ where: { id: req.params.id }, include: "files" })
+        const adv = await Object.findOne({ where: { id: req.params.id }, include: [ { all: true } ] })
         adv ? res.status(200).json(adv) : res.status(404).send("no se ha encontrado")
     } catch (err) {
         exceptionHandler(err, res)
