@@ -6,7 +6,7 @@ function UserApp () {
         <>
         <RestrictedArea>
             <LogOut/>
-            <p>Proba de Area restrinxide</p>
+            <p>Proba de Area restrinxida</p>
         </RestrictedArea>
         </>
     )

@@ -4,11 +4,11 @@ import { getPass } from "../../lib/UserFetch.mjs"
 import styles from "./LogIn.module.css"
 import { useNavigate } from "react-router-dom"; 
 
-function LogIn({route}) {
+function LogIn( {route} ) {
 
     const navigate = useNavigate()
 
-    const { consent, savePass, logOut } = useContext ( authorizationContext )
+    const { consent, savePass } = useContext ( authorizationContext )
 
     const [ UserName, setUserName ] = useState ("Andres")
     const [ password, setPassword ] = useState ("Cabra")

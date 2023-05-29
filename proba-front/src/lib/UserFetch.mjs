@@ -9,18 +9,18 @@ async function getPass (UserName, password, handler) {
     handler( res.ok ? await res.text() : false )
 }
 
-async function createUser ( data, handler ) {
+async function createUser ( userName, password, email, handler ) {
     const res = await fetch ( "http://localhost:8000/api/v1.0/users/",
         {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify ( data )
+            body: JSON.stringify ( {userName, password, email} )
         }
     )
     handler( res.ok ? await res.json() : false )
 }
 
-async function deleteUser ( data, handler ) {
+async function deleteUser ( data, jwt, handler ) {
     const res = await fetch ( "http://localhost:8000/api/v1.0/users/",
         {
             method: "DELETE",
@@ -34,7 +34,7 @@ async function deleteUser ( data, handler ) {
     handler( res.ok ? await res.json() : false )
 }
 
-async function modifyUser ( data, handler ) {
+async function modifyUser ( data, jwt, handler ) {
     const res = await fetch ( "http://localhost:8000/api/v1.0/users/",
     {
         method: "PUT",
