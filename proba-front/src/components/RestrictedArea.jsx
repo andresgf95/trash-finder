@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { authorizationContext } from "../services/authorization";
 import LogIn from "./LogIn/LogIn";
 
-function RestrictedArea ( {children} ) {
+function RestrictedArea( {children} ) {
 
     const consent = useContext(authorizationContext)
 

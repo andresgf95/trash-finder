@@ -1,25 +1,34 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect, useContext } from "react";
 import { getAdvertisements } from "../lib/AdvertisementsFetch.mjs";
+import { authorizationContext } from "./authorization.jsx";
 
 const AdvertisementsContext = createContext()
 
 function AdvertisementService ( {children} ) {
 
-    /*const stateAdvertisements = useState([])
+    const { pass } = useContext(authorizationContext)
+
+    const [advertisements, setAdvertisements] = useState([])
+
+    function getItems() {
+        getAdvertisements(pass, valueAdvertisements)
+    }
+
+    function valueAdvertisements(data) {
+        if (data) {
+            setAdvertisements(advertisements)
+        }
+    }
 
     useEffect(
-        ()=>{ const [ _, setItems] = stateAdvertisements
-            getAdvertisements( setItems )
-        },
-        []
-    )*/
+        getItems,
+        [pass]
+    )
 
-    const [ state, setState ] = useState([])
-
-    
+    const advertisementValue = { advertisements, setAdvertisements }
 
     return(
-        <AdvertisementsContext.Provider value={stateAdvertisements}>
+        <AdvertisementsContext.Provider value={advertisementValue}>
             { children }
         </AdvertisementsContext.Provider>
     )

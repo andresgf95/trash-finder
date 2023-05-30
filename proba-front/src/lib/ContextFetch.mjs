@@ -1,4 +1,4 @@
-async function AdvertisementContextFetch ( ) {
+async function AdvertisementContextFetch ( pass, handler) {
     const res = await fetch()
 
 

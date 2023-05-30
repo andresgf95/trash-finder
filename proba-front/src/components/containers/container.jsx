@@ -1,6 +1,6 @@
 import styles from "./container.module.css"
 
-function Container ( { state, children } ) {
+function Container( { state, children } ) {
 
     const [ open, setActive ] = state
 

@@ -2,7 +2,7 @@ async function getAdvertisements ( jwt, handler ) {
     const res = await fetch("http://localhost:8000/api/v1.0/objects/", {
         headers: { authorization: "Bearer "+jwt }
     })
-    handler ( res.ok ? await res.json() : false )
+    handler( res.ok ? await res.json() : false )
 }
 
 async function createAdvertisement ( data, jwt, handler ) {

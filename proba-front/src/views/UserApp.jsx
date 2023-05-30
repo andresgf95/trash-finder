@@ -1,11 +1,14 @@
+import DeployAdvertisements from "../components/Advertisement List/DeployAdvertisements";
 import RestrictedArea from "../components/RestrictedArea";
-import LogOut from "../components/LogIn/LogOut";
+import { AdvertisementService } from "../services/Advertisements";
 
 function UserApp () {
     return (
         <>
         <RestrictedArea>
-            <LogOut/>
+        <AdvertisementService>
+            <DeployAdvertisements/>
+        </AdvertisementService>
             <p>Proba de Area restrinxida</p>
         </RestrictedArea>
         </>

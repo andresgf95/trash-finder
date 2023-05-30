@@ -9,12 +9,12 @@ async function getPass (UserName, password, handler) {
     handler( res.ok ? await res.text() : false )
 }
 
-async function createUser ( userName, password, email, handler ) {
+async function createUser ( objectUser, handler ) {
     const res = await fetch ( "http://localhost:8000/api/v1.0/users/",
         {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify ( {userName, password, email} )
+            body: JSON.stringify ( objectUser )
         }
     )
     handler( res.ok ? await res.json() : false )

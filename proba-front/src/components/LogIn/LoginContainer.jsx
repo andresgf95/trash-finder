@@ -3,7 +3,7 @@ import Container from "../containers/container";
 import LogIn from "./LogIn";
 import { authorizationContext } from "../../services/authorization";
 
-function LoginContainer ( {route} ) {
+function LoginContainer() {
 
     const { consent } = useContext(authorizationContext)
     const stateContainer = useState(false)
@@ -15,7 +15,7 @@ function LoginContainer ( {route} ) {
             <>
             <button onClick={ ()=>{ setShowLogin(true) } } disabled={showLogin}>Login</button>
             <Container state={stateContainer}>
-                <LogIn route={route}/>
+                <LogIn/>
             </Container>
             </>
         }
