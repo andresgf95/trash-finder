@@ -1,19 +1,26 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { AdvertisementsContext } from "../../services/Advertisements";
+import { authorizationContext } from "../../services/authorization";
 
 export default function DeployAdvertisements() {
 
     const { advertisements } = useContext(AdvertisementsContext)
-
-    const Title = useState("")
-    const Description = useState("")
-    const LocationDescription = useState("")
-    const Date = useState("")
+    const { pass } = useContext(authorizationContext)
 
     return(
         <>
             <p>Zona de avisos publicados</p>
-            {advertisements.map( advertisement=>{advertisement.Title} )}
+            {
+                pass &&
+                advertisements.map(
+                    (item)=>
+                    <ul>
+                        <li>
+                            <h1>{item.Title}</h1>
+                        </li>
+                    </ul>
+                )
+            }
         </>
     )
 }

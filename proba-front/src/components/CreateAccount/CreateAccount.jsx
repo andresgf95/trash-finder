@@ -1,6 +1,7 @@
-import { useState, useContext } from "react"
+import { useState, useContext, useEffect } from "react"
 import { createUser } from "../../lib/UserFetch.mjs"
 import { authorizationContext } from "../../services/authorization.jsx"
+import styles from "./CreateAccount.module.css"
 
 function CreateAccount() {
 
@@ -22,11 +23,13 @@ function CreateAccount() {
     return( 
         <>
         { ! consent &&
-            <form onSubmit={submitHandler}>
+            <form onSubmit={submitHandler}
+            className={styles.form}>
                 <label>
                     Usuario
                     <input 
-                        type="text" 
+                        type="text"
+                        className={styles.input}  
                         value={UserName} 
                         onInput={
                         (e)=>{setUserName(e.target.value)}}
@@ -35,7 +38,8 @@ function CreateAccount() {
                 <label>
                     Contrasinal
                     <input 
-                        type="password" 
+                        type="password"
+                        className={styles.input}  
                         value={password} 
                         onInput={ 
                         (e)=>{ setPassword(e.target.value)}}
@@ -44,13 +48,16 @@ function CreateAccount() {
                 <label>
                     Email
                     <input 
-                        type="email" 
+                        type="email"
+                        className={styles.input}  
                         value={Email} 
                         onInput={ 
                         (e)=>{ setEmail(e.target.value)}}
                     />
                 </label>
-                <button>
+                <button
+                className={styles.button}
+                >
                 Enviar
                 </button>
             </form>

@@ -15,9 +15,7 @@ function AdvertisementService ( {children} ) {
     }
 
     function valueAdvertisements(data) {
-        if (data) {
-            setAdvertisements(advertisements)
-        }
+        data ? setAdvertisements(advertisements) : console.log("Algo fallou")
     }
 
     useEffect(
@@ -25,7 +23,7 @@ function AdvertisementService ( {children} ) {
         [pass]
     )
 
-    const advertisementValue = { advertisements, setAdvertisements }
+    const advertisementValue = { getItems, advertisements, setAdvertisements }
 
     return(
         <AdvertisementsContext.Provider value={advertisementValue}>
