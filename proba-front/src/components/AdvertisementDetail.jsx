@@ -9,7 +9,7 @@ export default function AdvertisementDetail({id}) {
         <h1>{currentAdvertisement?.Title}</h1>
         <p>{currentAdvertisement?.Description}</p>
         <p>Ubicacion</p>
-        <img src="..." alt="" /><span>Usuario</span>
+        <img src=".." alt="" /><span>Usuario</span>
         <div>Son un mapa</div>
     </>)
 }
