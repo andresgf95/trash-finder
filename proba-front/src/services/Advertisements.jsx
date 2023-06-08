@@ -15,7 +15,7 @@ function AdvertisementService ( {children} ) {
     }
 
     function valueAdvertisements(data) {
-        data ? setAdvertisements(advertisements) : console.log("Algo fallou")
+        data ? setAdvertisements(data) : console.log("Algo fallou")
     }
 
     useEffect(
