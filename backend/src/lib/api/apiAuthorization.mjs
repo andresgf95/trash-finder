@@ -22,3 +22,6 @@ app.post(path.sesion, jsonMiddleware, async (req, res)=>{
         return exceptionHandler(err, res)
     }
 })
+
+// next step, add Admin. status.
+// Add endpoints to the Admin. permiss
