@@ -2,7 +2,7 @@ import { app } from "../api/RunExpress.mjs";
 import { hash } from "bcrypt";
 import exceptionHandler from "./exceptionHandler.mjs";
 import { path } from "../api/path.mjs";
-import { User, UserProfile } from "../db/RunDB.mjs";
+import { User } from "../db/RunDB.mjs";
 import { middlewareAuthorization } from "../middlewares/authorization.mjs";
 import jsonMiddleware from "../middlewares/JsonMiddleware.mjs";
 
