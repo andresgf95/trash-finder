@@ -2,7 +2,6 @@ import { useContext } from "react"
 import { AdvertisementsContext } from "../../services/Advertisements"
 import Gallery from "./Gallery"
 import styles from './AdvertisementDetail.module.css'
-import Map from "./Map/Map"
 
 export default function AdvertisementDetail({id}) {
 
@@ -11,15 +10,14 @@ export default function AdvertisementDetail({id}) {
 
     return (
     <>
-        <div>
         <Gallery/>
         <div className={styles.container}>
-            <h1>{currentAdvertisement?.Title}</h1>
-            <p>{currentAdvertisement?.Description}</p>
-            <p>Ubicacion</p>
+            <h1 className={styles.Title}>{currentAdvertisement?.Title}</h1>
+            <div className={styles.line}></div>
+            <p className={styles.Description}>{currentAdvertisement?.Description}</p>
+            <div className={styles.line}></div>
+            <p className={styles.Description}>{currentAdvertisement?.LocationDescription}</p>
         </div>
-        </div>
-        <Map/>
     </>
     )
 }

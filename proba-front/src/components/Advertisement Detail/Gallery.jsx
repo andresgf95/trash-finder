@@ -4,7 +4,7 @@ import styles from "./Gallery.module.css"
 
 export default function Gallery () {
     return(
-        <SlCarousel className={styles.carousel} navigation loop pagination mouseDragging={true}>
+        <SlCarousel className={styles.carousel} navigation loop mouseDragging={true}>
         <SlCarouselItem>
           <img className={styles.picture}
             alt="The sun shines on the mountains and trees (by Adam Kool on Unsplash)"
