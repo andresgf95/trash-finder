@@ -12,7 +12,7 @@ function CreateAccount() {
     const [ Email, setEmail ] = useState("")
 
     function sendResult(data) {
-        if ( data === false ) alert("No ha sido posible guardar el perfil")
+        if ( data === false ) {alert("No ha sido posible guardar el perfil")}
     }
 
     function submitHandler(event) {
@@ -56,6 +56,7 @@ function CreateAccount() {
                     />
                 </label>
                 <button
+                type="submit"
                 className={styles.button}
                 >
                 Enviar

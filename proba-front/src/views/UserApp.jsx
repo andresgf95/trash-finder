@@ -4,6 +4,7 @@ import RestrictedArea from "../components/RestrictedArea";
 import AdvertisementDetail from "../components/Advertisement Detail/AdvertisementDetail"
 import { AdvertisementService } from "../services/Advertisements";
 import styles from './css/UserApp.module.css'
+import AddItemForm from "../components/CreateAdertisement/CreateAdvertisementForm";
 
 function UserApp () {
     return (
@@ -15,6 +16,7 @@ function UserApp () {
             <div className={styles.tests}>
             <h1>Tests</h1>
                 <AdvertisementDetail id={1}/>
+        <AddItemForm/>
             <h1>Fin tests</h1>
             </div>
         </AdvertisementService>
