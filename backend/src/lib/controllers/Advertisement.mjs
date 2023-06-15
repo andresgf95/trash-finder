@@ -29,7 +29,7 @@ app.get(path.advertisements, middlewareAuthorization, async (req, res) => {
 
 app.post(path.allAdvertisements, jsonMiddleware, middlewareAuthorization, async (req, res) => {
     try {
-        const createAdv = await Object.create(req.body, {include: [ { all: true } ]})
+        const createAdv = await Object.create(req.body)
         res.status(200).json(createAdv)
     } catch (err) {
         exceptionHandler(err, res)

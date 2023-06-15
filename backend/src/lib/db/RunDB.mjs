@@ -12,10 +12,10 @@ User.hasMany(Object)
 Object.belongsTo(User, { as: "ads" })
 
 Object.hasOne(Location)
-Location.belongsTo(Object, { as: "loc" })
+Location.belongsTo(Object)
 
 Object.hasMany(File, { as:"files" })
-File.belongsTo(Object)
+File.belongsTo(Object, { as:"files" })
 
 //await db.sync({ alter: true })
 await db.sync()
