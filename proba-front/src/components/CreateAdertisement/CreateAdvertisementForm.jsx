@@ -1,5 +1,4 @@
 import { useContext, useState } from "react"
-import { aDataURL } from "../../lib/Files.mjs"
 import {createAdvertisement} from "../../lib/AdvertisementsFetch.mjs"
 import { authorizationContext } from "../../services/authorization";
 
@@ -10,30 +9,22 @@ function AddItemForm() {
     const [ Title, setTitle ] = useState("")
     const [ Description, setDescription ] = useState("")
     const [ LocationDescription, setLocationDescription ] = useState("")
-    const [ files, setFiles ] = useState("")
 
     function submit() {
         const DataForm = {
             Title,
             Description,
-            LocationDescription,
-            files
+            LocationDescription
         }
         createAdvertisement(DataForm, pass, outcome)
     }
-
-    function handlerFiles(event) {
-        const file = event.target.files[1]
-        if (file) aDataURL(files, setFiles) 
-        else setFiles("")    
-        }
 
     function outcome(data) {
         if ( data === false ) alert("Ups...")
     }
 
     return (
-        <form>
+        <div>
         <label>
             Título
             <input type="text" value={Title} onInput={(event)=>{
@@ -52,13 +43,8 @@ function AddItemForm() {
                 setLocationDescription(event.target.value) } } 
             />
         </label>
-        <label>
-            Descripción
-            <input type="file" onInput={ handlerFiles }
-            />
-        </label>
         <button onClick={submit}>Gardar</button>
-        </form>
+        </div>
     );
 }
   

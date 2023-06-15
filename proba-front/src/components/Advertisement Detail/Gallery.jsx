@@ -1,20 +1,23 @@
 import { SlCarousel, SlCarouselItem } from '@shoelace-style/shoelace/dist/react';
 import A from "./A.png"
+import B from "./1673553091WhatsApp_Image_2023-01-12_at_20_48_09__3_.jpeg"
+import C from "./Contenedores-OVAL-fraccion-organica-Santiago-de-Compostela.jpg"
 import styles from "./Gallery.module.css"
 
 export default function Gallery () {
     return(
+      <div className={styles.containerGallery}>
         <SlCarousel className={styles.carousel} navigation loop mouseDragging={true}>
         <SlCarouselItem>
           <img className={styles.picture}
             alt="The sun shines on the mountains and trees (by Adam Kool on Unsplash)"
-            src={A}
+            src={B}
           />
         </SlCarouselItem>
         <SlCarouselItem>
           <img className={styles.picture}
             alt="A waterfall in the middle of a forest (by Thomas Kelly on Unsplash)"
-            src={A}
+            src={C}
           />
         </SlCarouselItem>
         <SlCarouselItem>
@@ -35,6 +38,7 @@ export default function Gallery () {
             src={A}
           />
         </SlCarouselItem>
-      </SlCarousel>
+        </SlCarousel>
+      </div>
     )
 }

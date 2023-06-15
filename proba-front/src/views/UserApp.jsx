@@ -5,6 +5,7 @@ import AdvertisementDetail from "../components/Advertisement Detail/Advertisemen
 import { AdvertisementService } from "../services/Advertisements";
 import styles from './css/UserApp.module.css'
 import AddItemForm from "../components/CreateAdertisement/CreateAdvertisementForm";
+import NewGallery from "../components/Advertisement Detail/NewGallery";
 
 function UserApp () {
     return (
@@ -16,7 +17,7 @@ function UserApp () {
             <div className={styles.tests}>
             <h1>Tests</h1>
                 <AdvertisementDetail id={1}/>
-        <AddItemForm/>
+                <NewGallery/>
             <h1>Fin tests</h1>
             </div>
         </AdvertisementService>

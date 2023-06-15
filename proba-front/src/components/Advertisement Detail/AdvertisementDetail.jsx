@@ -9,8 +9,8 @@ export default function AdvertisementDetail({id}) {
     const currentAdvertisement = advertisements.find( item => item.id === id )
 
     return (
-    <>
-        <Gallery/>
+    <div className={styles.PageContainer}>
+        <Gallery />
         <div className={styles.container}>
             <h1 className={styles.Title}>{currentAdvertisement?.Title}</h1>
             <div className={styles.line}></div>
@@ -18,6 +18,6 @@ export default function AdvertisementDetail({id}) {
             <div className={styles.line}></div>
             <p className={styles.Description}>{currentAdvertisement?.LocationDescription}</p>
         </div>
-    </>
+    </div>
     )
 }
