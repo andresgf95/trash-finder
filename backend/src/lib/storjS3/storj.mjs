@@ -6,6 +6,8 @@ import {
     DeleteObjectCommand
 } from "@aws-sdk/client-s3"
 
+import fs from "fs"
+
 const storejEndpoint = process.env.S3_ENDPOINT
 
 class StoreJ {
@@ -23,23 +25,25 @@ class StoreJ {
     }
 
     put(filename, req) {
+        const fileStream = fs.createReadStream(req.file.path)
         const command = PutObjectCommand({
             Bucket: this.bucket,
             Key: filename,
-            Body: req,
-            ContentType: req.headers['content-type'],
-            ContentLength: req.headers['content-length']
+            Body: fileStream,
+            ContentType: req.file.mimetype,
+            ContentLength: req.file.size
         })
         return this.client.send(command)
     }
 
     
-    get(filename) {
-        const command = GetObjectCommand({
-            Bucket: this.bucket,
-            key: filename
-        })
-        return this.client.send(command)
+    async get(filename) {
+        const command = new GetObjectCommand({
+          Bucket: this.bucket,
+          Key: filename,
+        });
+        const response = await this.client.send(command);
+        return response.Body;
     }
 
     list() {

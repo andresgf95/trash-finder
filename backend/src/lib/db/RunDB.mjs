@@ -17,7 +17,7 @@ Location.belongsTo(Object)
 Object.hasMany(File, { as:"files" })
 File.belongsTo(Object, { as:"files" })
 
-//await db.sync({ alter: true })
-await db.sync()
+db.sync({ alter: true })
+//await db.sync()
 
 export { File, Location, Object, UserProfile, User }
