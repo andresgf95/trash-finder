@@ -1,6 +1,6 @@
 import { useState, useContext } from "react";
 import Container from "../containers/container";
-import LogIn from "./LogIn";
+import LogIn from "./LogInForm.jsx";
 import { authorizationContext } from "../../services/authorization";
 
 function LoginContainer() {

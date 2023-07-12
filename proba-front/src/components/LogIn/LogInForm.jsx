@@ -20,9 +20,9 @@ function LogIn() {
     return(
         <>
         { ! consent &&
-        <div className={styles.container}>
+        <form className={styles.container}>
             <label>
-                Usuario
+                <p>Usuario</p>
                 <input className={styles.input} 
                     type="text" 
                     value={UserName} 
@@ -31,7 +31,7 @@ function LogIn() {
                 />
             </label>
             <label>
-                Contrasinal
+                <p>Contrasinal</p>        
                 <input className={styles.input} 
                     type="text" 
                     value={password} 
@@ -44,7 +44,7 @@ function LogIn() {
                     getPass(UserName, password, Verify)}}>
                     LogIn
             </button>
-        </div>
+        </form>
         }
         </>
     );

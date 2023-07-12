@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { authorizationContext } from "../services/authorization";
-import LogIn from "./LogIn/LogIn";
+import LogIn from "./LogIn/LogInForm";
 
 function RestrictedArea( {children} ) {
 
