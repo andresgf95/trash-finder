@@ -1,10 +1,11 @@
-import { app } from "../api/RunExpress.mjs";
+import { app } from "../../api/server/RunExpress.mjs";
+import { path } from "../../api/server/path.mjs";
+import { User } from "../../models/database/RunDB.mjs";
+import { middlewareAuthorization } from "../../middlewares/auth/authorization.mjs";
+import jsonMiddleware from "../../middlewares/auth/JsonMiddleware.mjs";
+import exceptionHandler from "../../utils/errorHandlers/exceptionHandler.mjs";
 import { hash } from "bcrypt";
-import exceptionHandler from "./exceptionHandler.mjs";
-import { path } from "../api/path.mjs";
-import { User } from "../db/RunDB.mjs";
-import { middlewareAuthorization } from "../middlewares/authorization.mjs";
-import jsonMiddleware from "../middlewares/JsonMiddleware.mjs";
+
 
 app.post(path.user, jsonMiddleware, async (req, res)=>{
     try {

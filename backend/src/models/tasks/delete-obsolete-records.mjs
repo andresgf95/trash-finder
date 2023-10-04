@@ -1,5 +1,5 @@
 import nodeCron from "node-cron";
-import { Object } from "./lib/db/RunDB.mjs";
+import { Object } from "../database/RunDB.mjs";
 import { Op } from "sequelize";
 
 nodeCron.schedule("0 0 * * * 1",

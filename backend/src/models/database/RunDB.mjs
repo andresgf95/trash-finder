@@ -1,9 +1,9 @@
-import db from "./DefineDB.mjs";
-import File from "./tables/FilesTable.mjs";
-import Location from "./tables/LocationTable.mjs";
-import Object from "./tables/ObjectsTable.mjs"
-import UserProfile from "./tables/UserProfile.mjs";
-import User from "./tables/UserTable.mjs";
+import db from "../database/DefineDB.mjs";
+import File from "../database/tables/FilesTable.mjs";
+import Location from "../database/tables/LocationTable.mjs";
+import Object from "../database/tables/ObjectsTable.mjs"
+import UserProfile from "../database/tables/UserProfile.mjs";
+import User from "../database/tables/UserTable.mjs";
 
 User.hasOne(UserProfile)
 UserProfile.belongsTo(User, { as: "profile" })

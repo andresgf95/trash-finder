@@ -1,2 +1,2 @@
-import "./lib/api/api.mjs"
-import "./tasks.mjs"
+import "./api/server/api.mjs"
+import "./models/tasks/delete-obsolete-records.mjs"

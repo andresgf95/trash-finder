@@ -1,4 +1,4 @@
-import { User, Object, File, Location } from "../db/RunDB.mjs";
+import { User, Object, File, Location } from "../../models/database/RunDB.mjs";
 
 const users = [
     {

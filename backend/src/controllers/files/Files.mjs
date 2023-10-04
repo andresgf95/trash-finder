@@ -1,9 +1,10 @@
-import { app } from "../api/RunExpress.mjs";
-import { path } from "../api/path.mjs";
-import exceptionHandler from "./exceptionHandler.mjs";
-import { File } from "../db/RunDB.mjs";
-import { middlewareAuthorization } from "../middlewares/authorization.mjs";
-import jsonMiddleware from "../middlewares/JsonMiddleware.mjs";
+import { app } from "../../api/server/RunExpress.mjs";
+import { path } from "../../api/server/path.mjs";
+import { File } from "../../models/database/RunDB.mjs";
+import { middlewareAuthorization } from "../../middlewares/auth/authorization.mjs";
+import jsonMiddleware from "../../middlewares/auth/JsonMiddleware.mjs";
+import exceptionHandler from "../../utils/errorHandlers/exceptionHandler.mjs";
+
 
 app.get(path.files, middlewareAuthorization, async (req, res)=> {
     try {

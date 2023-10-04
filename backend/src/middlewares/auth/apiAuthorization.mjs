@@ -1,10 +1,10 @@
+import { app } from "../../api/server/RunExpress.mjs";
+import { path } from "../../api/server/path.mjs";
+import { User } from "../../models/database/RunDB.mjs"
+import exceptionHandler from "../../utils/errorHandlers/exceptionHandler.mjs";
+import jsonMiddleware from "../auth/JsonMiddleware.mjs";
 import { compare } from "bcrypt"
 import jwt from "jsonwebtoken"
-import { path } from "./path.mjs";
-import { app } from "./RunExpress.mjs";
-import exceptionHandler from "../controllers/exceptionHandler.mjs";
-import { User } from "../db/RunDB.mjs"
-import jsonMiddleware from "../middlewares/JsonMiddleware.mjs";
 
 app.post(path.sesion, jsonMiddleware, async (req, res)=>{
     try {
