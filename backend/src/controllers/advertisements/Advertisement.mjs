@@ -5,7 +5,6 @@ import { middlewareAuthorization } from "../../middlewares/auth/authorization.mj
 import jsonMiddleware from "../../middlewares/auth/JsonMiddleware.mjs";
 import exceptionHandler from "../../utils/errorHandlers/exceptionHandler.mjs";
 
-// deploy all advertisements
 app.get(path.allAdvertisements, middlewareAuthorization, async (_, res) => {
     try {
         res.json(await Object.findAll({
@@ -17,7 +16,6 @@ app.get(path.allAdvertisements, middlewareAuthorization, async (_, res) => {
     }
 })
 
-// get one single advertisement
 app.get(path.advertisements, middlewareAuthorization, async (req, res) => {
     try {
         const adv = await Object.findOne({ where: { id: req.params.id }, include: [ { all: true } ] })

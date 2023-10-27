@@ -1,4 +1,4 @@
-import { useState, useContext, useEffect } from "react"
+import { useState, useContext } from "react"
 import { createUser } from "../../lib/UserFetch.mjs"
 import { authorizationContext } from "../../services/authorization.jsx"
 import styles from "./CreateAccount.module.css"

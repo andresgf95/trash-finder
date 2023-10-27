@@ -1,10 +1,10 @@
 import ActualizarAvisos from "../components/Advertisement List/ActualizarAVisos";
 import DeployAdvertisements from "../components/Advertisement List/DeployAdvertisements";
 import RestrictedArea from "../components/RestrictedArea";
-import AdvertisementDetail from "../components/Advertisement Detail/AdvertisementDetail"
+//import AdvertisementDetail from "../components/Advertisement Detail/AdvertisementDetail"
 import { AdvertisementService } from "../services/Advertisements";
 import styles from './css/UserApp.module.css'
-import AddItemForm from "../components/CreateAdertisement/CreateAdvertisementForm";
+//import AddItemForm from "../components/CreateAdertisement/CreateAdvertisementForm";
 import Location from "../components/Advertisement Detail/Map/ProbaUseGeolocation";
 function UserApp () {
     return (

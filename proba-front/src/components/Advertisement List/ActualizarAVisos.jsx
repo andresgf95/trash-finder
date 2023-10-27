@@ -1,4 +1,4 @@
-import { useContext, useState } from "react"
+import { useContext } from "react"
 import { AdvertisementsContext } from "../../services/Advertisements"
 
 export default function ActualizarAvisos () {
